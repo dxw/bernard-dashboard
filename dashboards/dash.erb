@@ -1,28 +1,34 @@
-<script type='text/javascript'>
-$(function() {
-  // These settings override the defaults set in application.coffee. You can do this on a per dashboard basis.
-  Dashing.gridsterLayout('[{"col":2,"row":1},{"col":1,"row":1},{"col":3,"row":1},{"col":2,"row":2},{"col":3,"row":2},{"col":1,"row":2},{"col":5,"row":1},{"col":4,"row":2},{"col":2,"row":3}]')
-  Dashing.widget_base_dimensions = [370, 340]
-  Dashing.numColumns = 5
-});
-</script>
-
-
-<% content_for :title do %>1080p dashboard<% end %>
+<% content_for :title do %>Statsboard<% end %>
 
 <div class="gridster">
   <ul>
     <li data-row="1" data-col="1" data-sizex="1" data-sizey="1">
-      <div data-id="tick_made_a_coffee" data-view="Number" data-title="Coffee" data-min="0" data-max="50"></div>
+      <div data-id="tick_made_a_coffee" data-view="Number" data-title="Coffee"></div>
     </li>
-    <li data-row="1" data-col="1" data-sizex="1" data-sizey="1">
-      <div data-id="tick_made_a_tea" data-view="Number" data-title="Tea" data-min="0" data-max="50"></div>
+    <li data-row="1" data-col="2" data-sizex="1" data-sizey="1">
+      <div data-id="tick_made_a_tea" data-view="Meter" data-title="Tea" data-min="0" data-max="50"></div>
     </li>
-    <li data-row="1" data-col="1" data-sizex="1" data-sizey="1">
-      <div data-id="tick_annoyed_hippers" data-view="Number" data-title="Annoyed Hippers" data-min="0" data-max="50"></div>
+    <li data-row="1" data-col="3" data-sizex="2" data-sizey="1">
+      <div data-id="tick_graph_made_a_coffee" data-view="Graph" data-title="Coffee (last week)"></div>
     </li>
-    <li data-row="1" data-col="1" data-sizex="1" data-sizey="1">
-      <div data-id="tick_fell_over" data-view="Number" data-title="Fell over" data-min="0" data-max="50"></div>
+
+    <li data-row="2" data-col="1" data-sizex="1" data-sizey="1">
+    </li>
+    <li data-row="2" data-col="2" data-sizex="1" data-sizey="1">
+    </li>
+    <li data-row="2" data-col="3" data-sizex="1" data-sizey="1">
+    </li>
+    <li data-row="2" data-col="4" data-sizex="1" data-sizey="1">
+    </li>
+
+    <li data-row="3" data-col="1" data-sizex="1" data-sizey="1">
+      <div data-view="Clock" data-title="Clock"></div>
+    </li>
+    <li data-row="3" data-col="2" data-sizex="1" data-sizey="1">
+    </li>
+    <li data-row="3" data-col="3" data-sizex="1" data-sizey="1">
+    </li>
+    <li data-row="3" data-col="4" data-sizex="1" data-sizey="1">
     </li>
   </ul>
 </div>
