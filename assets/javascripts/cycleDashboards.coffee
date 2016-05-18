@@ -114,67 +114,6 @@ hideFunctions = {
             "-webkit-transform": 'scale(2,2)'
         }
     }
-
-    spin: {
-        transitionFunction: ($dashboard, options, done) ->
-            # Add perspective to the container, so we can spin the dashboard in 3D
-            $parent = $dashboard.parent()
-            $parent.css({perspective: 500, "-webkit-perspective": 500})
-
-            # Do the transition
-            moveWithTransition [$dashboard], {
-                transition: 'all 1s',
-                start: {
-                    transform: 'rotateY(0deg)'
-                    "-webkit-transform": 'rotateY(0deg)'
-                }
-                end: {
-                    transform: 'rotateY(90deg)'
-                    "-webkit-transform": 'rotateY(90deg)'
-                },
-                timeInSeconds: 1}, ->
-
-                $dashboard.hide()
-
-                # Remove changes
-                sleep 0, ->
-                    $dashboard.parent().css({perspective: '', "-webkit-perspective": ''})
-                    $dashboard.css({
-                        transform: ''
-                        "-webkit-transform": ''
-                    })
-                    done()
-        chainsTo: {
-            transitionFunction: ($dashboard, options, done) ->
-                # Add perspective to the container, so we can spin the dashboard in 3D
-                $parent = $dashboard.parent()
-                $parent.css({perspective: 500, "-webkit-perspective": 500})
-
-                $dashboard.show()
-
-                # Do the transition
-                moveWithTransition [$dashboard], {
-                    transition: 'all 1s',
-                    start: {
-                        transform: 'rotateY(-90deg)'
-                        "-webkit-transform": 'rotateY(-90deg)'
-                    }
-                    end: {
-                        transform: 'rotateY(0deg)'
-                        "-webkit-transform": 'rotateY(0deg)'
-                    },
-                    timeInSeconds: 1}, ->
-
-                    # Remove changes
-                    sleep 0, ->
-                        $dashboard.parent().css({perspective: '', "-webkit-perspective": ''})
-                        $dashboard.css({
-                            transform: ''
-                            "-webkit-transform": ''
-                        })
-                        done()
-        }
-    }
 }
 
 # Handy function for reversing simple transitions
