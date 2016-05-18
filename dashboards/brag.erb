@@ -1,0 +1,42 @@
+<script>
+  $(function() {
+    Dashing.widget_base_dimensions = [$(window).width(), $(window).height()]
+    Dashing.numColumns = 1
+
+    Dashing.cycleDashboards({timeInSeconds: 2, stagger: true});
+  });
+</script>
+
+<% content_for :title do %>Statsboard<% end %>
+
+<div class="gridster">
+  <ul>
+    <li data-row="1" data-col="1" data-sizex="1" data-sizey="1">
+      <div data-id="tick_made_a_coffee" data-view="Bignumber" data-project="Team dxw" data-detail="Since May 2015" data-title="Coffees consumed" style="background-color: #13e668"></div>
+    </li>
+  </ul>
+</div>
+
+<div class="gridster">
+  <ul>
+    <li data-row="1" data-col="1" data-sizex="1" data-sizey="1">
+      <div data-id="tick_annoyed_hippers" data-view="Bignumber" data-project="Team dxw" data-detail="Since the beginning of time" data-title="Hippers outbursts" style="background-color: #ffbd14"></div>
+    </li>
+  </ul>
+</div>
+
+<div class="gridster">
+  <ul>
+    <li data-row="1" data-col="1" data-sizex="1" data-sizey="1">
+      <div data-id="tick_vote" data-view="Bignumber" data-project="Building software" data-detail="Votes cast during story prioritisation" data-title="Votes on stories" style="background-colour: #ff9014"></div>
+    </li>
+  </ul>
+</div>
+
+<div class="gridster">
+  <ul>
+    <li data-row="1" data-col="1" data-sizex="1" data-sizey="1">
+      <div data-id="tick_foo_wp" data-view="Bignumber" data-project="Exporting is Great" data-detail="Email alerts sent to registered users since May 2016" data-title="Email alerts sent" style="background-colour: #ff4114"></div>
+    </li>
+  </ul>
+</div>

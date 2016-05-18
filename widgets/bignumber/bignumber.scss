@@ -1,0 +1,54 @@
+// ----------------------------------------------------------------------------
+// Sass declarations
+// ----------------------------------------------------------------------------
+$background-color-1: #1ba4de;
+$background-color-2: #2d46e3;
+$background-color-3: #ffbd14;
+$background-color-4: #ff9014;
+$background-color-5: #ff4114;
+$background-color-6: #13e668;
+
+$value-color:       #fff;
+
+$title-color:       rgba(255, 255, 255, 1);
+$moreinfo-color:    rgba(255, 255, 255, 0.6);
+
+// ----------------------------------------------------------------------------
+// Widget-number styles
+// ----------------------------------------------------------------------------
+.widget-bignumber {
+
+  background-color: $background-color-1;
+
+  h1, h2 {
+    text-align: left;
+    text-transform: none;
+    font-weight: normal;
+  }
+
+  .value {
+    color: $value-color;
+    font-size: 18em;
+    margin: -0.2em 0 0.1em;
+    line-height: 1;
+  }
+
+  .title, .project, .detail {
+    color: $title-color;
+    font-size: 4em;
+    font-family: 'PT Sans', sans-serif;
+  }
+
+  .project {
+    margin: 0 0 4em 0;
+    font-size: 3em;
+  }
+
+  .detail {
+    font-size: 3em;
+  }
+
+  .bignumber_container {
+    margin: 0 0 0 10%;
+  }
+}
