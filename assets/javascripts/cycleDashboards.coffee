@@ -80,39 +80,9 @@ isFunction = (obj) -> obj && obj.constructor && obj.call && obj.apply
 #
 
 hideFunctions = {
-    toRight: ($dashboard, widgets, originalLocations) ->
-        documentWidth = $(document).width()
-        return {end: (($widget) -> {left: documentWidth, opacity: 0})}
-
-    shrink: {
-        start: {
-            opacity: 1,
-            transform: 'scale(1,1)',
-            "-webkit-transform": 'scale(1,1)'
-        },
-        end: {
-            transform: 'scale(0,0)',
-            "-webkit-transform": 'scale(0,0)',
-            opacity: 0
-        }
-    }
-
     fadeOut: {
         start: {opacity: 1}
         end: {opacity: 0}
-    }
-
-    explode: {
-        start: {
-            opacity: 1
-            transform: 'scale(1,1)',
-            "-webkit-transform": 'scale(1,1)'
-        }
-        end: {
-            opacity: 0
-            transform: 'scale(2,2)',
-            "-webkit-transform": 'scale(2,2)'
-        }
     }
 }
 
@@ -123,20 +93,7 @@ reverseTransition = (obj) ->
     return {start: obj.end, end: obj.start, transition: obj.transition}
 
 showFunctions = {
-    fromLeft: ($dashboard, widgets, originalLocations) ->
-        start: (($widget, index) -> {left: "#{-$widget.width() - $dashboard.width()}px", opacity: 0}),
-        end: (($widget, index) -> originalLocations[index]),
-
-    fromTop: ($dashboard, widgets, originalLocations) ->
-        start: (($widget, index) -> {top: "#{-$widget.height() - $dashboard.height()}px", opacity: 0}),
-        end: (($widget, index) -> return originalLocations[index]),
-
-    zoom: reverseTransition(hideFunctions.shrink)
-
     fadeIn: reverseTransition(hideFunctions.fadeOut)
-
-    implode: reverseTransition(hideFunctions.explode)
-
 }
 
 # Move an element from one place to another using a CSS3 transition.
@@ -234,7 +191,7 @@ showHideDashboard = (visible, stagger, $dashboard, transitions, done) ->
                 origDone?()
 
 
-    transitionString = "all 1s"
+    transitionString = "all .5s"
 
     if transitions.transitionFunction
         # Show/hide the dashboard with a custom function
@@ -250,7 +207,7 @@ showHideDashboard = (visible, stagger, $dashboard, transitions, done) ->
                     start: transitions.start,
                     end: transitions.end,
                     transition: transitions.transition or transitionString,
-                    timeInSeconds: 1
+                    timeInSeconds: 0.5
                 }, fnDone
 
     else
@@ -266,7 +223,7 @@ showHideDashboard = (visible, stagger, $dashboard, transitions, done) ->
                             start: transitions.start,
                             end: transitions.end,
                             transition: transitions.transition or transitionString,
-                            timeInSeconds: 1,
+                            timeInSeconds: 0.5,
                             offset: index
                         }, ->
             for widget, index in widgets
