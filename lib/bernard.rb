@@ -55,8 +55,8 @@ module Bernard
 
     def get_http_connection
       http = Net::HTTP.new('api.keen.io', 443)
-      http.open_timeout = 5
-      http.read_timeout = 5
+      http.open_timeout = 15
+      http.read_timeout = 15
       http.use_ssl = true
 
       http

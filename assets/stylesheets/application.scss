@@ -5,7 +5,7 @@
 // ----------------------------------------------------------------------------
 // Sass declarations
 // ----------------------------------------------------------------------------
-$background-color: #002;
+$background-color: #222;
 $text-color: #fff;
 
 $background-warning-color-1: #e82711;
@@ -94,17 +94,17 @@ h1, h2, h3, h4, h5, p {
 h1 {
   margin-bottom: 12px;
   text-align: center;
-  font-size: 30px;
+  font-size: 60px;
   font-weight: 400;
 }
 h2 {
   text-transform: uppercase;
-  font-size: 76px;
+  font-size: 152px;
   font-weight: 700;
   color: $text-color;
 }
 h3 {
-  font-size: 25px;
+  font-size: 50px;
   font-weight: 600;
   color: $text-color;
 }
@@ -124,7 +124,7 @@ h3 {
   left: 0;
   top: 0;
   opacity: 0.1;
-  font-size: 275px;
+  font-size: 550px;
   text-align: center;
   margin-top: 82px;
 }
@@ -179,7 +179,7 @@ h3 {
 }
 
 .more-info {
-  font-size: 15px;
+  font-size: 30px;
   position: absolute;
   bottom: 32px;
   left: 0;
@@ -187,7 +187,7 @@ h3 {
 }
 
 .updated-at {
-  font-size: 15px;
+  font-size: 30px;
   position: absolute;
   bottom: 12px;
   left: 0;
@@ -223,7 +223,7 @@ h3 {
   background: white;
   top: 100px;
   color: black;
-  font-size: 15px;
+  font-size: 30px;
   padding-bottom: 4px;
 
   textarea {

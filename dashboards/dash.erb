@@ -1,3 +1,9 @@
+<script>
+  $(function() {
+    Dashing.cycleDashboards({timeInSeconds: 15, stagger: true});
+  });
+</script>
+
 <% content_for :title do %>Statsboard<% end %>
 
 <div class="gridster">
@@ -8,27 +14,22 @@
     <li data-row="1" data-col="2" data-sizex="1" data-sizey="1">
       <div data-id="tick_made_a_tea" data-view="Meter" data-title="Tea" data-min="0" data-max="50"></div>
     </li>
-    <li data-row="1" data-col="3" data-sizex="2" data-sizey="1">
-      <div data-id="tick_graph_made_a_coffee" data-view="Graph" data-title="Coffee (last week)"></div>
-    </li>
-
-    <li data-row="2" data-col="1" data-sizex="1" data-sizey="1">
-    </li>
     <li data-row="2" data-col="2" data-sizex="1" data-sizey="1">
-    </li>
-    <li data-row="2" data-col="3" data-sizex="1" data-sizey="1">
-    </li>
-    <li data-row="2" data-col="4" data-sizex="1" data-sizey="1">
-    </li>
-
-    <li data-row="3" data-col="1" data-sizex="1" data-sizey="1">
       <div data-view="Clock" data-title="Clock"></div>
     </li>
-    <li data-row="3" data-col="2" data-sizex="1" data-sizey="1">
+  </ul>
+</div>
+
+<div class="gridster">
+  <ul>
+    <li data-row="1" data-col="1" data-sizex="2" data-sizey="1">
+      <div data-id="tick_graph_made_a_coffee" data-view="Graph" data-title="Coffee (last week)"></div>
     </li>
-    <li data-row="3" data-col="3" data-sizex="1" data-sizey="1">
+    <li data-row="2" data-col="1" data-sizex="1" data-sizey="1">
+      <div data-id="tick_annoyed_hippers" data-view="Meter" data-title="Annoyed Hippers" data-min="0" data-max="50"></div>
     </li>
-    <li data-row="3" data-col="4" data-sizex="1" data-sizey="1">
+    <li data-row="2" data-col="2" data-sizex="1" data-sizey="1">
+      <div data-id="tick_fell_over" data-view="Meter" data-title="Fell Over" data-min="0" data-max="50"></div>
     </li>
   </ul>
 </div>
