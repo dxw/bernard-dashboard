@@ -41,10 +41,35 @@ module Bernard
       end
     end
 
+    def update_lists
+      lists = fetch_unique(event_collection: 'splat', timeframe: 'this_1_months', target_property: 'type')
+
+      lists['result'].each do |list|
+        puts "Collection... #{list}"
+        request = Net::HTTP::Get.new("/3.0/projects/#{@project_id}/queries/average?event_collection=splat&target_property=value.count&group_by=value.name&timezone=UTC&timeframe=this_1_months&filters=%5B%7B%22property_name%22%3A%22type%22%2C%22operator%22%3A%22eq%22%2C%22property_value%22%3A%22#{list}%22%7D%5D")
+        request['Authorization'] = read_key
+        request['Content-Type'] = 'application/json'
+
+        response = @connection.request(request)
+        body = JSON.parse(response.body)['result']
+
+        items = body.map {|x| { label: x['value.name'], value: x['result'] } }
+        send_event("splat_#{list}", items: items)
+      end
+    end
+
     private
 
     def fetch_counts(body = nil)
-      request = Net::HTTP::Post.new("/3.0/projects/#{project_id}/queries/count")
+      fetch(body, 'count')
+    end
+
+    def fetch_unique(body = nil)
+      fetch(body, 'select_unique')
+    end
+
+    def fetch(body = nil, type)
+      request = Net::HTTP::Post.new("/3.0/projects/#{project_id}/queries/#{type}")
       request['Authorization'] = read_key
       request['Content-Type'] = 'application/json'
       request.body = body.to_json
